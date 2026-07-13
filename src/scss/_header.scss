@@ -1,0 +1,19 @@
+/*--------------------------------------------------------------
+## Header Styling
+--------------------------------------------------------------*/
+
+.masthead {
+    gap: 40px;
+    display: flex;
+    font-size: 16px;
+    filter: invert(1);
+    align-items: center;
+    transform: translateX(-50%);
+    mix-blend-mode: difference;
+    color: var(--black);
+    width: fit-content;
+    position: fixed;
+    z-index: 10;
+    top: 60px;
+    left: 50%;
+}

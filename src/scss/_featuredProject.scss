@@ -1,0 +1,44 @@
+/*--------------------------------------------------------------
+## Featured Project Styling
+--------------------------------------------------------------*/
+
+.glow {
+  inset: 0;
+  position: absolute;
+  transform: scale(1.2);
+  filter: blur(200px);
+  z-index: -1;
+}
+
+.featured-title {
+  position: relative;
+
+  > * {
+    white-space: nowrap;
+    transition: opacity 0.3s ease;
+    will-change: opacity;
+  }
+
+  .url {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+  }
+}
+
+.featured-info:has(.featured-text:hover, .link-icon:hover) {
+  .featured-title {
+    p {
+      opacity: 0;
+    }
+
+    .url {
+      opacity: 1;
+    }
+  }
+
+  .arrow {
+    transform: rotate(45deg);
+  }
+}

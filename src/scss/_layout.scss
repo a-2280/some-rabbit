@@ -1,0 +1,36 @@
+/*--------------------------------------------------------------
+## Layout Styling
+--------------------------------------------------------------*/
+
+.h1 {
+  font-weight: 400;
+  text-align: center;
+  font-size: 36px;
+  color: var(--grey);
+}
+
+.h4 {
+  color: var(--black);
+  font-weight: 500;
+}
+
+body {
+  font-size: 14px;
+  color: var(--light-grey);
+  background-color: var(--white);
+  font-family: var(--font-gerstner), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-smooth: always;
+  text-rendering: optimizeLegibility;
+  ::selection {
+    background: #5e3714;
+    color: var(--white);
+  }
+}
+
+:root {
+  --grey: #929292;
+  --light-grey: #a5a5a5;
+  --black: #040404;
+  --white: #fff;
+}

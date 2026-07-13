@@ -1,0 +1,26 @@
+/*--------------------------------------------------------------
+## Link Icon Styling
+--------------------------------------------------------------*/
+
+.link-icon {
+    padding: 8px;
+    background-color: var(--white);
+    border-radius: 50%;
+    box-shadow:
+      0 0 13px hsl(0deg 0% 0% / 0.05),
+      0 0 25px hsl(0deg 0% 0% / 0.05),
+      0 0 50px hsl(0deg 0% 0% / 0.05),
+      0 0 100px hsl(0deg 0% 0% / 0.05),
+      0 0 200px hsl(0deg 0% 0% / 0.05)
+    ;
+}
+
+.arrow {
+    width: 10px;
+    aspect-ratio: 1 / 1;
+    background-image: url("/images/arrow.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transition: all .3s ease;
+}

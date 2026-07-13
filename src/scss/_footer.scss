@@ -1,0 +1,19 @@
+/*--------------------------------------------------------------
+## Footer Styling
+--------------------------------------------------------------*/
+
+.colophon {
+    position: relative;
+    --footer-height: 700px;
+    clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
+    height: var(--footer-height);
+    background-color: #584017;
+    color: #FFCFC4;
+}
+
+.colophon .content {
+    width: 100vw;
+    position: fixed;
+    height: var(--footer-height);
+    bottom: 0;
+}
