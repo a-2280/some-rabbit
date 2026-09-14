@@ -1,31 +1,27 @@
+import {TextIcon} from '@sanity/icons/Text'
+import {toPlainText} from 'next-sanity'
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'hero',
   title: 'Hero',
   type: 'object',
+  icon: TextIcon,
   fields: [
     defineField({
       name: 'heading',
       title: 'Heading',
-      type: 'string',
-      validation: (rule) => rule.required(),
-    }),
-    defineField({
-      name: 'body',
-      title: 'Body',
-      type: 'text',
-      rows: 3,
-    }),
-    defineField({
-      name: 'image',
-      title: 'Image',
-      type: 'imageBlock',
-    }),
-    defineField({
-      name: 'cta',
-      title: 'Call to action',
-      type: 'cta',
+      type: 'array',
+      of: [{type: 'block'}],
     }),
   ],
+  preview: {
+    select: {title: 'heading'},
+    prepare({title}) {
+      return {
+        title: toPlainText(title || 'Currently no title, set one inside this block'),
+        subtitle: 'Hero text',
+      }
+    },
+  },
 })

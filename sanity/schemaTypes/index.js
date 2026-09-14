@@ -1,19 +1,20 @@
 import {createPresetsRegistry} from '@sanity/presets'
 
+import featuredProject from './featuredProject'
 import hero from './hero'
+import layout from './layout'
+import page from './page'
+import project from './project'
+import projectGrid from './projectGrid'
 
-const {defineCta, defineImage, definePage, defineRichText} = createPresetsRegistry({
-  link: {to: ['page']},
-})
+const {defineSeo} = createPresetsRegistry()
 
 export const schemaTypes = [
-  definePage({
-    name: 'page',
-    title: 'Page',
-    pageBuilderBlocks: ['hero', 'imageBlock', 'cta', 'richText'],
-  }),
+  page,
+  project,
+  layout,
   hero,
-  defineImage({name: 'imageBlock', title: 'Image'}),
-  defineCta({name: 'cta', title: 'Call to action'}),
-  defineRichText({name: 'richText', title: 'Rich text'}),
+  featuredProject,
+  projectGrid,
+  defineSeo({name: 'seo', title: 'SEO'}),
 ]

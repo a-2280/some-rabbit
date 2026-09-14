@@ -1,0 +1,32 @@
+/*--------------------------------------------------------------
+## Project Styling
+--------------------------------------------------------------*/
+
+.project-headline {
+  position: relative;
+  white-space: nowrap;
+  > * {
+    transition: opacity 0.3s ease;
+  }
+  .project-url {
+    top: 0;
+    opacity: 0;
+    position: absolute;
+    transform: translateX(-50%);
+    pointer-events: none;
+    left: 50%;
+  }
+  &.start .project-url {
+    left: 0;
+    transform: none;
+  }
+}
+
+.project-info:has(.link-icon:hover) .project-headline {
+  .project-credit {
+    opacity: 0;
+  }
+  .project-url {
+    opacity: 1;
+  }
+}
