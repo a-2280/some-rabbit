@@ -23,7 +23,7 @@ export default defineType({
       description: 'Page sections rendered in order. Add, remove, or reorder blocks to build the page.',
       type: 'array',
       group: 'main',
-      of: [{type: 'hero'}, {type: 'featuredProject'}, {type: 'projectGrid'}],
+      of: [{type: 'hero'}, {type: 'featuredProject'}, {type: 'projectGrid'}, {type: 'capabilities'}, {type: 'booking'}],
     }),
     defineField({
       name: 'seo',

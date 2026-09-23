@@ -1,0 +1,26 @@
+/*--------------------------------------------------------------
+## Animation Styling
+--------------------------------------------------------------*/
+
+.hover--fade {
+    transition: all 0.3s ease 0.2s;
+}
+
+/* ------------ Scroll Styles ------------ */
+
+.fade--in {
+    opacity: 0;
+    transition: opacity 0.65s ease 0.2s;
+}
+
+/* ------------ Hover Styles ------------ */
+
+.hover--zoom {
+    isolation: isolate;
+    .bg-image {
+        transition: transform 0.6s ease;
+    }
+    &:hover .bg-image {
+        transform: scale(1.02);
+    }
+}

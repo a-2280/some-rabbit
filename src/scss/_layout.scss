@@ -3,9 +3,19 @@
 --------------------------------------------------------------*/
 
 .h1 {
+  font-size: 64px;
+}
+
+.h2 {
   font-weight: 400;
   text-align: center;
   font-size: 36px;
+  color: var(--grey);
+}
+
+.h3 {
+  font-size: 24px;
+  line-height: 42px;
   color: var(--grey);
 }
 
@@ -33,4 +43,5 @@ body {
   --light-grey: #a5a5a5;
   --black: #040404;
   --white: #fff;
+  --shadow-spread: 0 5px 10px rgba(154, 160, 185, 0.05), 0 15px 40px rgba(166, 173, 201, 0.2);
 }

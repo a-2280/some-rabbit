@@ -10,6 +10,7 @@
     "clean": "git clean -fXd -e \\!node_modules -e \\!node_modules/**/*"
   },
   "dependencies": {
+    "@calcom/embed-react": "^1.5.3",
     "@gsap/react": "^2.1.2",
     "@portabletext/react": "^8.0.1",
     "gsap": "^3.15.0",

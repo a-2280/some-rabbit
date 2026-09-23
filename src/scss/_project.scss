@@ -2,6 +2,27 @@
 ## Project Styling
 --------------------------------------------------------------*/
 
+// The shadow sits on a negative-z pseudo instead of on .project-media, so it paints below every
+// sibling card rather than on top of whichever ones come later in the DOM. .project-card must not
+// create a stacking context (position only, no z-index) or the pseudo would be trapped inside it.
+.project-card {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0 0 auto;
+    aspect-ratio: 16 / 10; // matches .ratio-16-10 on .project-media
+    border-radius: 10px; // matches .radius-10 on .project-media
+    box-shadow: var(--shadow-spread);
+  }
+}
+
+.project-text {
+  position: relative;
+  z-index: 1; // lift above the card shadows, which paint from .project-media's stacking context
+}
+
 .project-headline {
   position: relative;
   white-space: nowrap;
@@ -9,24 +30,31 @@
     transition: opacity 0.3s ease;
   }
   .project-url {
-    top: 0;
+    inset: 0;
     opacity: 0;
+    display: flex;
     position: absolute;
-    transform: translateX(-50%);
+    justify-content: center;
     pointer-events: none;
-    left: 50%;
   }
   &.start .project-url {
-    left: 0;
-    transform: none;
+    justify-content: start;
   }
 }
 
-.project-info:has(.link-icon:hover) .project-headline {
+.project-headline:hover,
+.project-info:has(.link-icon:hover) .project-headline,
+.project-media:hover + .project-info .project-headline {
   .project-credit {
     opacity: 0;
   }
   .project-url {
     opacity: 1;
+    pointer-events: auto;
   }
+}
+
+.project-info:has(.project-headline:hover) .link-icon .arrow,
+.project-media:hover + .project-info .link-icon .arrow {
+  rotate: 45deg;
 }

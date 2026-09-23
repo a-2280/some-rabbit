@@ -10,14 +10,9 @@
     background-color: var(--white);
     transition: all .3s ease;
     border-radius: 50%;
-    box-shadow:
-      0 0 13px hsl(0deg 0% 0% / 0.05),
-      0 0 25px hsl(0deg 0% 0% / 0.05),
-      0 0 50px hsl(0deg 0% 0% / 0.05),
-      0 0 100px hsl(0deg 0% 0% / 0.05),
-      0 0 200px hsl(0deg 0% 0% / 0.05)
-    ;
-    &:hover {
+    position: relative;
+    z-index: 1; // lift above the card shadows, which paint from .project-media's stacking context
+    &:hover .arrow {
         rotate: 45deg;
     }
 }
@@ -29,4 +24,5 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+    transition: rotate .3s ease;
 }

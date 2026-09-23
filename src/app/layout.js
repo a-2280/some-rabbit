@@ -4,6 +4,7 @@ import Header from "@/components/header"
 import localFont from "next/font/local"
 import { SanityLive } from "@/sanity/live"
 import SmoothScroll from "@/components/smoothScroll"
+import ScrollAnimations from "@/components/scrollAnimations"
 
 const gerstnerProgramm = localFont({
     src: [
@@ -45,6 +46,7 @@ export default function RootLayout({ children }) {
                     <Header />
                     {children}
                     <Footer />
+                    <ScrollAnimations />
                 </SmoothScroll>
                 <SanityLive />
             </body>

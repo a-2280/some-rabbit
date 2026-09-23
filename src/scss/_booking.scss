@@ -1,0 +1,15 @@
+/*--------------------------------------------------------------
+## Booking Styling
+--------------------------------------------------------------*/
+
+// Cal renders its card inside an iframe, so this wrapper is sized to match the card and carries the shadow
+.booking-embed {
+    width: 100%;
+    max-width: 987px; // Cal month_view card: 280 meta + 425 calendar + 280 slots + 2px border
+    border-radius: 6px; // match Cal's card corners
+    overflow: hidden;
+    background-color: var(--white);
+    iframe {
+        display: block;
+    }
+}

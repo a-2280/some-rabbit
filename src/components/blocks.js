@@ -1,8 +1,10 @@
 import Hero from './hero'
 import FeaturedProject from './featuredProject'
 import ProjectGrid from './projectGrid'
+import Capabilities from './capabilities'
+import Booking from './booking'
 
-const blockTypes = {hero: Hero, featuredProject: FeaturedProject, projectGrid: ProjectGrid}
+const blockTypes = {hero: Hero, featuredProject: FeaturedProject, projectGrid: ProjectGrid, capabilities: Capabilities, booking: Booking}
 
 export default function Blocks({blocks = []}) {
     return blocks.map(block => {

@@ -28,6 +28,10 @@
     display: flex;
 }
 
+.flex-1 {
+    flex: 1;
+}
+
 .flex-wrap {
     flex-wrap: wrap;
 }
@@ -54,6 +58,10 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 40px;
+}
+
+.column-60 {
+    column-gap: 60px;
 }
 
 /* ------------ Position Styles ------------ */
@@ -151,7 +159,18 @@ div.bg-image,
 .pth {
     --top-margin: 60px;
     --header-height: 45px;
+  @media (max-width: 768px) {
+    --top-margin: 20px;
+  }
     padding-top: calc(var(--top-margin) + var(--header-height));
+}
+
+.p20 {
+    padding: 20px;
+}
+
+.p30 {
+    padding: 30px;
 }
 
 .p40 {
@@ -191,6 +210,54 @@ div.bg-image,
     border-radius: 12px;
 }
 
+/* ------------ Shadow Styles ------------ */
+
+.shadow--soft {
+    box-shadow:
+      0 0.4px 2px rgb(0 0 0 / 0.035),
+      0 0.7px 4px rgb(0 0 0 / 0.04),
+      0 1.4px 8px rgb(0 0 0 / 0.04),
+      0 2.9px 16px rgb(0 0 0 / 0.045);
+}
+
+.shadow--spread {
+    box-shadow: var(--shadow-spread);
+}
+
+/* ------------ Ambilight Styles ------------ */
+
+// A blurred, saturated copy of the media pinned behind it, so the artwork throws a halo of its own
+// edge colours onto the page in place of a grey drop shadow. Give the element the same ratio/max-width
+// utilities as the media it mirrors, and make its parent .pos-rel. saturate() rather than
+// brightness() because the page background is white and a brightness boost would wash the halo out.
+//
+// The box must line up exactly with the media — no scale, no offset. Sized to match, its solid area
+// is hidden behind the opaque media and only the blur fringe shows, which is the ring we want.
+// Scaling it down pulls that fringe inside the media's footprint and the halo disappears. Don't
+// scale it up to fatten the ring either: transform scale counts as scrollable overflow, and below
+// 900px the featured media runs edge to edge, so it would put a horizontal scrollbar on the page.
+// Reach for --ambilight-blur instead, which is ink overflow and never affects scroll.
+.ambilight {
+    --ambilight-blur: 80px;
+    --ambilight-saturate: 3;
+    --ambilight-opacity: 0.6;
+
+    top: 0;
+    left: 50%;
+    z-index: -1;
+    position: absolute;
+    object-fit: cover;
+    pointer-events: none;
+    opacity: var(--ambilight-opacity);
+    filter: blur(var(--ambilight-blur)) saturate(var(--ambilight-saturate));
+
+    // translate3d rather than translate, plus will-change, to keep the glow on its own compositor
+    // layer so the blur is a GPU layer effect. The source repaints every video frame, and without
+    // promotion that blur is re-rastered on the CPU each time.
+    transform: translate3d(-50%, 0, 0);
+    will-change: filter;
+}
+
 /* ------------ Gap Styles ------------ */
 
 .gap-5 {
@@ -201,6 +268,10 @@ div.bg-image,
     gap: 15px;
 }
 
+.gap-20 {
+    gap: 20px;
+}
+
 .gap-25 {
     gap: 25px;
 }
@@ -209,7 +280,87 @@ div.bg-image,
     gap: 40px;
 }
 
+.gap-60 {
+    gap: 60px;
+}
+
+.gap-80 {
+    gap: 80px;
+}
+
 /* ------------ Opacity Styles ------------ */
 .op-0 {
     opacity: 0;
+}
+
+.m-100 {
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.m-hide {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.m-flex {
+  @media (max-width: 768px) {
+    display: flex;
+  }
+}
+
+.m-flex-1 {
+  @media (max-width: 768px) {
+    flex: 1;
+  }
+}
+
+.m-flex-col {
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.m-justify-end {
+  @media (max-width: 768px) {
+    justify-content: end;
+  }
+}
+
+.m-p20 {
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
+}
+
+.m-flex-col {
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.m-space-between {
+  @media (max-width: 768px) {
+    justify-content: space-between;
+  }
+}
+
+.m-gap-10 {
+  @media (max-width: 768px) {
+    gap: 10px;
+  }
+}
+
+.m-gap-20 {
+  @media (max-width: 768px) {
+    gap: 20px;
+  }
+}
+
+.m-gap-40 {
+  @media (max-width: 768px) {
+    gap: 40px;
+  }
 }
