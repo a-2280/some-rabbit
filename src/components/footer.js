@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { useEffect, useRef } from "react"
-import { pickFooterPair } from "@/utils/footerColors"
+import { FOOTER_COLOR_PAIRS, pickFooterPair } from "@/utils/footerColors"
 
 export default function Footer() {
     const footerRef = useRef(null)
@@ -16,9 +16,6 @@ export default function Footer() {
             footerRef.current.style.setProperty("--footer-text", pairRef.current.text)
         }
 
-        // The footer is covered the moment its top edge reaches the bottom of the
-        // screen. Measured live on every scroll rather than from a cached scroll
-        // position, so it stays exact as the page height settles.
         const isHidden = () => footerRef.current.getBoundingClientRect().top >= window.innerHeight
 
         const onScroll = () => {
@@ -27,7 +24,7 @@ export default function Footer() {
             hiddenRef.current = hidden
         }
 
-        applyPair()
+        pairRef.current = FOOTER_COLOR_PAIRS.find(pair => pair.name === "Cocoa")
         hiddenRef.current = isHidden()
 
         window.addEventListener("scroll", onScroll, { passive: true })
