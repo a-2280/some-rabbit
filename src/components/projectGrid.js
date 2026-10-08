@@ -13,7 +13,7 @@ export default function ProjectGrid({ projects }) {
                     return (
                         <div key={index}>
                             <div className='project-card flex flex-col gap-15'>
-                                <Media href={project.link} className='project-media hover--zoom pos-rel ratio-16-10 radius-10 overflow'>
+                                <Media href={project.link} className='project-media hover--zoom pos-rel ratio-49-29 radius-10 overflow'>
                                     <Image className='bg-image' src={project.posterUrl} alt='' fill />
                                 </Media>
                                 <div className='project-info flex space-between  gap-25'>
